@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace CatMash.Services.Cat.Messages
 {
-    public class CatScore
+    public class VoteRequest
     {
-        public string CatId { get; set; }
+        public int WinId { get; set; }
 
-        public int Score { get; set; }
+        public int LostId { get; set; }
     }
 }

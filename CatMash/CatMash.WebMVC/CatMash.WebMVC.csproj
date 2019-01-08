@@ -5,22 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\Home\About.cshtml.old" />
-    <None Remove="Views\Home\Contact.cshtml.old" />
-    <None Remove="Views\Home\Privacy.cshtml.old" />
-    <None Remove="Views\Shared\_CookieConsentPartial.cshtml.old" />
-    <None Remove="Views\Shared\_ValidationScriptsPartial.cshtml.old" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Views\Home\About.cshtml.old" />
-    <Content Include="Views\Home\Contact.cshtml.old" />
-    <Content Include="Views\Home\Privacy.cshtml.old" />
-    <Content Include="Views\Shared\_CookieConsentPartial.cshtml.old" />
-    <Content Include="Views\Shared\_ValidationScriptsPartial.cshtml.old" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />

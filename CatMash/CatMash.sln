@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cat", "Cat", "{882E7837-B27E-41AB-8076-C622AD2E2237}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cat.API", "Cat.API", "{882E7837-B27E-41AB-8076-C622AD2E2237}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FF2E7D01-8A6D-4362-8EE8-5E8200AC7E89}"
 EndProject

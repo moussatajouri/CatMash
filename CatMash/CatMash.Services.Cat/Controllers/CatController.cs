@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CatMash.Services.Cat.Messages;
+using CatMash.Services.Cat.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatMash.Services.Cat.Controllers
@@ -18,20 +19,21 @@ namespace CatMash.Services.Cat.Controllers
         {
             var catscoresResponses = new GetCatScoresResponse
             {
-                CatScores = new List<CatScore>()
+                Cats = new List<Model.Cat>()
                 {
-                    new CatScore{ CatId="1", Score=10 },
-                    new CatScore{ CatId="2", Score=3 },
-                    new CatScore{ CatId="3" }
+                    new Model.Cat{ Id = 1, Score= new Score{LostVoteCount= 1, WinVoteCount = 5, Value=10.2 } },
+                    new Model.Cat{ Id = 2, Score= new Score{LostVoteCount= 1, WinVoteCount = 5, Value=10.2 }  },
+                    new Model.Cat{ Id = 3 }
                 }
             };
             return Ok(catscoresResponses);
         }
 
-        [HttpPut]
-        [Route("vote/{catId}")]
-        public void Vote(string catId)
+        [HttpPost]
+        [Route("vote")]
+        public void Vote([FromBody]VoteRequest voteRequest)
         {
+
         }
     }
 }
