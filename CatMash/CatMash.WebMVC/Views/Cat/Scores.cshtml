@@ -1,0 +1,34 @@
+﻿@using CatMash.WebMVC.Models
+@model CatScoresModel
+
+<div class="row">
+    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading c-list">
+                <span class="title">Scores</span>
+            </div>
+
+            <ul class="list-group" id="contact-list">
+
+                @foreach (var cat in Model.Cats)
+                {
+                    <li class="list-group-item">
+                        <div class="col-xs-12 col-sm-4">
+                            <img src="@cat?.Url" alt="cat id @cat.Id" class="img-responsive img-responsive" />
+                        </div>
+                        <div class="col-xs-12 col-sm-8">
+
+                            Vote gagné <span class="badge badge-light">@cat?.Score?.WinVoteCount</span> <br />
+                            Vote perdu <span class="badge badge-light">@cat?.Score?.LostVoteCount</span><br />
+                            Score <span class="badge badge-light">@cat?.Score?.Value</span>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
