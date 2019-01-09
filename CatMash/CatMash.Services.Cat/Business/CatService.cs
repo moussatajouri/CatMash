@@ -21,7 +21,6 @@ namespace CatMash.Services.Cat.Business
         public GetCatScoresResponse GetCatScores()
         {
             var dbCats = _catRepository.GetAllCat();
-            var totalVote = _catRepository.VotesCount();
 
             var cats = new List<Model.Cat>();
 
@@ -31,11 +30,11 @@ namespace CatMash.Services.Cat.Business
                 {
                     Id = cat.CatId,
                     Url = cat.Url,
-                    Score = ScoreHelpler.CalculateScore(totalVote, cat.TVoteWinCat.Count(), cat.TVoteLostCat.Count())
+                    Score = ScoreHelpler.CalculateScore(cat.TVoteWinCat.Count(), cat.TVoteLostCat.Count())
                 });
             }
 
-            return new GetCatScoresResponse { Cats = cats };
+            return new GetCatScoresResponse { Cats = cats.OrderByDescending(c => c.Score?.Value) };
 
         }
 

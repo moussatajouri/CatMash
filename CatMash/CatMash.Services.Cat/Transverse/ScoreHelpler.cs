@@ -11,13 +11,13 @@ namespace CatMash.Services.Cat.Transverse
         private static readonly int WIN_WEIGHT = 5;
         private static readonly int LOST_WEIGHT = 1;
 
-        public static Score CalculateScore(int totalVote, int winVoteCount, int lostVoteCount)
+        public static Score CalculateScore(int winVoteCount, int lostVoteCount)
         {
             return new Score
             {
                 LostVoteCount = lostVoteCount,
                 WinVoteCount = winVoteCount,
-                Value = totalVote == 0 ? 0 : (winVoteCount * WIN_WEIGHT - lostVoteCount * LOST_WEIGHT) / totalVote
+                Value = winVoteCount * WIN_WEIGHT - lostVoteCount * LOST_WEIGHT
             };
         }
     }

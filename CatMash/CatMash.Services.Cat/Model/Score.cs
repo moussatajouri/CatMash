@@ -12,6 +12,5 @@ namespace CatMash.Services.Cat.Model
         public int WinVoteCount { get; set; }
 
         public double Value { get; set; }
-
     }
 }

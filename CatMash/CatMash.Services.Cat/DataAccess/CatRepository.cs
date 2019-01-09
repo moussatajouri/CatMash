@@ -63,12 +63,7 @@ namespace CatMash.Services.Cat.DataAccess
                 throw new Exception("DataAccessException", exp);
             }
         }
-
-        public int VotesCount()
-        {
-            return _catDbContext.TVote.Count();
-        }
-
+        
         public TCat GetRandomCat()
         {
             var random = new Random();
