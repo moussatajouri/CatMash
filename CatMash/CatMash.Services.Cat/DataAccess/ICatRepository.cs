@@ -12,5 +12,7 @@ namespace CatMash.Services.Cat.DataAccess
         IEnumerable<TCat> GetAllCat();
 
         int AddVote(TVote vote);
+
+        int VotesCount();
     }
 }

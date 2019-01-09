@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace CatMash.Services.Cat.DataAccess
@@ -16,7 +17,7 @@ namespace CatMash.Services.Cat.DataAccess
         
         public IEnumerable<TCat> GetAllCat()
         {
-            return _catDbContext.TCat.ToList();
+            return _catDbContext.TCat.Include(c=> c.TVoteLostCat).Include(cc=>cc.TVoteWinCat);
         }
 
         public TCat GetCatById(int id)
@@ -61,6 +62,11 @@ namespace CatMash.Services.Cat.DataAccess
             {
                 throw new Exception("DataAccessException", exp);
             }
+        }
+
+        public int VotesCount()
+        {
+            return _catDbContext.TVote.Count();
         }
     }
 }

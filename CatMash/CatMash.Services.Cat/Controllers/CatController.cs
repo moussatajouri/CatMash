@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CatMash.Services.Cat.Business;
 using CatMash.Services.Cat.Messages;
 using CatMash.Services.Cat.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -13,19 +14,19 @@ namespace CatMash.Services.Cat.Controllers
     [ApiController]
     public class CatController : ControllerBase
     {
+        private readonly ICatService _catService;
+
+        public CatController(ICatService catService)
+        {
+            _catService = catService;
+        }
+
         [HttpGet]
         [Route("scores")]
         public IActionResult GetScores()
         {
-            var catscoresResponses = new GetCatScoresResponse
-            {
-                Cats = new List<Model.Cat>()
-                {
-                    new Model.Cat{ Id = 1, Score= new Score{LostVoteCount= 1, WinVoteCount = 5, Value=10.2 } },
-                    new Model.Cat{ Id = 2, Score= new Score{LostVoteCount= 1, WinVoteCount = 5, Value=10.2 }  },
-                    new Model.Cat{ Id = 3 }
-                }
-            };
+            var catscoresResponses = _catService.GetCatScores();
+
             return Ok(catscoresResponses);
         }
 
@@ -33,7 +34,7 @@ namespace CatMash.Services.Cat.Controllers
         [Route("vote")]
         public void Vote([FromBody]VoteRequest voteRequest)
         {
-
+            _catService.InsertVote(voteRequest);
         }
     }
 }
