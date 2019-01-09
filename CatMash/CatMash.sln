@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatMash.Services.Cat", "Cat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatMash.WebMVC", "CatMash.WebMVC\CatMash.WebMVC.csproj", "{5316C5BB-EB3B-4108-A4AB-5DA2EF68D6D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatMash.Services.Cat.Tests", "CatMash.Services.Cat.Tests\CatMash.Services.Cat.Tests.csproj", "{36907DBD-1D08-44D2-A552-4B858A338B99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{5316C5BB-EB3B-4108-A4AB-5DA2EF68D6D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5316C5BB-EB3B-4108-A4AB-5DA2EF68D6D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5316C5BB-EB3B-4108-A4AB-5DA2EF68D6D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36907DBD-1D08-44D2-A552-4B858A338B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36907DBD-1D08-44D2-A552-4B858A338B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36907DBD-1D08-44D2-A552-4B858A338B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36907DBD-1D08-44D2-A552-4B858A338B99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{DA5FABE8-BDDA-457B-8A6A-862427304CC7} = {EABD1113-1F3A-4333-9819-6FB6A95FB8CE}
 		{74C667A7-2DE4-4CD3-8EF7-09BB750E6113} = {FF2E7D01-8A6D-4362-8EE8-5E8200AC7E89}
 		{5316C5BB-EB3B-4108-A4AB-5DA2EF68D6D6} = {A2195B67-EC38-4547-8E3E-E4A4A57B28B0}
+		{36907DBD-1D08-44D2-A552-4B858A338B99} = {05B86CB6-1215-437F-9607-BFC0EA94A6BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8AA81D4-517F-428F-8836-A6B9F94166B5}
