@@ -18,10 +18,22 @@
                         </div>
                         <div class="col-xs-12 col-sm-8">
 
-                            Vote gagné <span class="badge badge-light">@cat?.Score?.WinVoteCount</span> <br />
-                            Vote perdu <span class="badge badge-light">@cat?.Score?.LostVoteCount</span><br />
-                            Score <span class="badge badge-light">@cat?.Score?.Value</span>
+                            Vote gagnés <span class="badge badge-light">@cat?.Score?.WinVoteCount</span> <br />
+                            Vote perdus <span class="badge badge-light">@cat?.Score?.LostVoteCount</span><br /><br />
 
+                            <b>Score :</b>
+                            @if (cat?.Score?.Value > 0)
+                            {
+                                <span class="badge" style="background-color: #28a745;">@cat?.Score?.Value</span>
+                            }
+                            else if (cat?.Score?.Value < 0)
+                            {
+                                <span class="badge" style="background-color: #dc3545;">@cat?.Score?.Value</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-light">@cat?.Score?.Value</span>
+                            }
                         </div>
                         <div class="clearfix"></div>
                     </li>
