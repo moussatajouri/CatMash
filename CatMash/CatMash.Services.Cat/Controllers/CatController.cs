@@ -30,6 +30,15 @@ namespace CatMash.Services.Cat.Controllers
             return Ok(catscoresResponses);
         }
 
+        [HttpGet]
+        [Route("candidates")]
+        public IActionResult Candidates()
+        {
+            var catscoresResponses = _catService.GetCandidatesCats();
+
+            return Ok(catscoresResponses);
+        }
+
         [HttpPost]
         [Route("vote")]
         public void Vote([FromBody]VoteRequest voteRequest)

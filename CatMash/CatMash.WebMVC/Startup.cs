@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CatMash.WebMVC.Business;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,6 +31,11 @@ namespace CatMash.WebMVC
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var section = Configuration.GetSection("ApiConfiguration");
+            services.Configure<ApiConfiguration>(section);
+
+            services.AddHttpClient<ICatService, CatService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

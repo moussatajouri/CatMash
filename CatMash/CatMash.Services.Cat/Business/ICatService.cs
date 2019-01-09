@@ -11,5 +11,7 @@ namespace CatMash.Services.Cat.Business
         GetCatScoresResponse GetCatScores();
 
         bool InsertVote(VoteRequest vote);
+
+        Tuple<Model.Cat, Model.Cat> GetCandidatesCats();
     }
 }

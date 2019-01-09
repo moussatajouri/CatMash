@@ -25,8 +25,8 @@
         function VoteFunction(winCatId, lostCatId) {
 
             var request = {
-                WinCatId: winCatId,
-                LostCatId: lostCatId
+                WinId: winCatId,
+                LostId: lostCatId
             }
 
             $.ajax({
@@ -37,8 +37,14 @@
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(request),
                 success: function (result) {
+                    if (result == "OK") {
+                        location.reload();
+                    } else if (result == "KO") {
+                        alert("Veuillez re-votez");
+                    }
                 }
             });
+
     }
 
 </script>

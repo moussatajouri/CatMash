@@ -14,5 +14,7 @@ namespace CatMash.Services.Cat.DataAccess
         int AddVote(TVote vote);
 
         int VotesCount();
+
+        TCat GetRandomCat();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CatMash.WebMVC.Business;
 using CatMash.WebMVC.Domain;
 using CatMash.WebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,36 +11,44 @@ namespace CatMash.WebMVC.Controllers
 {
     public class CatController : Controller
     {
-        public IActionResult Scores()
+        private readonly ICatService _catService;
+
+        public CatController(ICatService catService)
         {
-            var model = new CatScoresModel
-            {
-                Cats = new List<Cat>
-                {
-                    new Cat{ Id=1, Url="http://24.media.tumblr.com/tumblr_m82woaL5AD1rro1o5o1_1280.jpg", Score= new Score{ LostVoteCount=1, WinVoteCount = 3, Value= 10.2 } },
-                    new Cat{ Id=2, Url="http://24.media.tumblr.com/tumblr_m82woaL5AD1rro1o5o1_1280.jpg", Score= new Score{ LostVoteCount=3, WinVoteCount = 0, Value= 5 } },
-                    new Cat{ Id=3, Url="http://24.media.tumblr.com/tumblr_lzxok2e2kX1qgjltdo1_1280.jpg", Score= new Score{ LostVoteCount=0, WinVoteCount = 2, Value= 2 } }
-                }
-            };
+            _catService = catService;
+        }
+
+        public async Task<IActionResult> Scores()
+        {
+            CatScoresModel model = await _catService.GetCatScores();
 
             return View(model);
         }
 
-        public IActionResult Vote()
+        public async Task<IActionResult> Vote()
         {
+            var cats= await _catService.GetCatsForVote();
             var model = new VoteModel
             {
-                FirstCat = new Cat { Id = 1, Url = "http://24.media.tumblr.com/tumblr_m82woaL5AD1rro1o5o1_1280.jpg" },
-                SecondCat = new Cat { Id = 2, Url = "http://24.media.tumblr.com/tumblr_m29a9d62C81r2rj8po1_500.jpg" },
+                FirstCat = cats.Item1,
+                SecondCat = cats.Item2,
             };
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Vote([FromBody]VoteModel model)
+        public async Task<IActionResult> Vote([FromBody]VoteModel model)
         {
-            return Ok();
+            try
+            {
+                await _catService.SendVote(model);
+                return Json("OK");
+            }
+            catch
+            {
+                return Json("KO");
+            }
         }
 
     }

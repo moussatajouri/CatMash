@@ -68,5 +68,12 @@ namespace CatMash.Services.Cat.DataAccess
         {
             return _catDbContext.TVote.Count();
         }
+
+        public TCat GetRandomCat()
+        {
+            var random = new Random();
+            var skip = (int)(random.NextDouble() * _catDbContext.TCat.Count());
+            return _catDbContext.TCat.OrderBy(c=> c.CatId).Skip(skip).Take(1).First();
+        }
     }
 }

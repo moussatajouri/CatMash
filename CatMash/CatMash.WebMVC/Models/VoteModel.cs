@@ -12,8 +12,8 @@ namespace CatMash.WebMVC.Models
 
         public Cat SecondCat { get; set; }
 
-        public int WinCatId { get; set; }
+        public int WinId { get; set; }
 
-        public int LostCatId { get; set; }
+        public int LostId { get; set; }
     }
 }
